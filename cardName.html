@@ -1,5 +1,5 @@
-<!DOCTYPE html >
-<html lang="en" class="light-mode" >
+<!DOCTYPE html>
+<html lang="en" class="light-mode">
 
 <head>
     <!-- meta starts -->
@@ -12,6 +12,7 @@
     <!-- meta ends -->
     <!-- css  links start -->
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./detailsPageStyle.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.0.1/css/ionicons.min.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -30,18 +31,18 @@
                     <h2>web topics</h2>
                 </div>
                 <ul>
-                    <button aria-label="Toggle dark mode" onclick="toggleDarkMode()" >
+                    <button aria-label="Toggle dark mode" onclick="toggleDarkMode()">
                         <ion-icon aria-hidden="true" name="moon-outline"></ion-icon>
                         <span>dark mode</span>
                     </button>
-                    <button aria-label="Add to favorites">
+                    <button aria-label="Add to favorites" class="favorit-button" >
                         <ion-icon aria-hidden="true" name="heart-outline"></ion-icon>
                         <span>favorites</span>
                     </button>
                 </ul>
             </nav>
         </div>
-        <section class="header-title"  role="banner">
+        <section class="header-title" role="banner">
             <div class="container">
                 <div class="description-of-header">
                     <h2>Welcome to our website!</h2>
@@ -50,15 +51,125 @@
             </div>
         </section>
     </header>
-    <main>
-        
-    </main>
+    <div class="detials-page">
+        <section class="details-of-course">
+            <div class="container">
+                <div class="card-container">
+                    <div class="card">
+                        <h2 class="card-category">
+                            web development languages
+                            <br />
+                            <b class="card-topic">HTML</b>
+                        </h2>
+                        <button class="small-screen-Fav">Add to favorits <ion-icon name="heart-outline"></ion-icon></button>
+                        <div class="card-rating">
+                            <span><ion-icon name="star"></ion-icon></span>
+                            <span><ion-icon name="star"></ion-icon></span>
+                            <span><ion-icon name="star"></ion-icon></span>
+                            <span><ion-icon name="star"></ion-icon></span>
+                            <span><ion-icon name="star-outline"></ion-icon></span>
+                        </div>
+                        <p class="card-description">
+                            HTML (Hypertext Markup Language) is the standard markup language for creating web pages and
+                            other information that can be displayed in a web browser. It provides a structure for
+                            content and defines how it should be displayed on a web page, including text, images, and
+                            multimedia. HTML is essential for creating static web pages and is a foundational technology
+                            for the World Wide Web.
+                        </p>
+                    </div>
+                    <div class="card-details">
+                        <div class="card">
+                            <img src="./images/javascript.jpg" alt="card-image" />
+                            <div class="card-body">
+                                <p class="card-auther"><b>HTML</b> by <a href="#">Sarah Semith</a></p>
+                            </div>
+                            <div class="card-footer">
+                                <p>Intersted about this topic?</p>
+                                <button>Add to favorits <ion-icon name="heart-outline"></ion-icon></button>
+                                <p>Unlimited Credits</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+            </div>
+        </section>
+        <section class="table-of-topics">
+            <div class="container">
+                <div class="sub-topics">
+                    <div class="table">
+                        <div class="table-title">
+                            <h2>HTML Sub Topics</h2>
+                        </div>
+                        <div class="sub-title">
+                            <span><ion-icon name="checkmark-circle-outline"></ion-icon></span>
+                            <p>HTML syntax and structure</p>
+                        </div>
+                        <div class="sub-title">
+                            <span><ion-icon name="checkmark-circle-outline"></ion-icon></span>
+                            <p>HTML elements and attributes</p>
+                        </div>
+                        <div class="sub-title">
+                            <span><ion-icon name="checkmark-circle-outline"></ion-icon></span>
+                            <p>HTML forms and input elements</p>
+                        </div>
+                        <div class="sub-title">
+                            <span><ion-icon name="checkmark-circle-outline"></ion-icon></span>
+                            <p>HTML tables and lists</p>
+                        </div>
+                        <div class="sub-title">
+                            <span><ion-icon name="checkmark-circle-outline"></ion-icon></span>
+                            <p>HTML multimedia elements (audio, video, images)</p>
+                        </div>
+                        <div class="sub-title">
+                            <span><ion-icon name="checkmark-circle-outline"></ion-icon></span>
+                            <p>HTML accessibility and semantic markup</p>
+                        </div>
+                    </div>
+                    <div class="second-for-width">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
     <footer>
         <div class="container">
             <p>Develop with <span><i class="fa-solid fa-heart"></i></span> &#169; 2023 </p>
         </div>
     </footer>
+    <div class="favoritss">
+        <div class="container">
+            <h2>My Favorite Topics</h2>
+            <div class="favorit-card-container">
+                <a href="cardName.html" class="card">
+                    <img src="./images/css.webp" alt="html logo" />
+                    <div class="card-body">
+                        <p class="card-title"><b>CSS</b></p>
+                        <div class="star-rating">
+                            <span><ion-icon name="star"></ion-icon></span>
+                            <span><ion-icon name="star"></ion-icon></span>
+                            <span><ion-icon name="star"></ion-icon></span>
+                            <span><ion-icon name="star-half"></ion-icon></span>
+                            <span><ion-icon name="star-outline"></ion-icon></span>
+                        </div>
+                    </div>
+                </a>
+                <a href="cardName.html" class="card">
+                    <img src="./images/css.webp" alt="html logo" />
+                    <div class="card-body">
+                        <p class="card-title"><b>CSS</b></p>
+                        <div class="star-rating">
+                            <span><ion-icon name="star"></ion-icon></span>
+                            <span><ion-icon name="star"></ion-icon></span>
+                            <span><ion-icon name="star"></ion-icon></span>
+                            <span><ion-icon name="star-half"></ion-icon></span>
+                            <span><ion-icon name="star-outline"></ion-icon></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
 </body>
 
 <script>
@@ -69,7 +180,9 @@
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
+    integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./index.js"></script>
 
 </html>

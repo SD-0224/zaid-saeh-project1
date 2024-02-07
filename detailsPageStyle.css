@@ -1,0 +1,322 @@
+:root {
+    /* commen colour detail page*/
+    --bg-description-section: #333333;
+
+
+    --bg_default_light: #FFFFFF;
+    --bg_body_light: #F0F9FF;
+    --lines-color_light: #DDDDDD;
+    --body-text_light: #333333;
+    --heart-color_light: #DC143C;
+    --star-color_light: #E69820;
+    --brand-secondary: #03C180;
+    --brand-primary: #0768AC;
+
+
+    --bg_default_dark: #1A1A1A;
+    --bg_body_dark: #282828;
+    --lines-color_dark: #000000;
+    --body-text_dark: #EDEDED;
+    --heart-color_dark: #DC143C;
+    --brand-secondary: #03C180;
+    --brand-primary: #0768AC;
+    --star-color_dark: #E69820;
+
+}
+
+body.light-mode {
+    --bg_default: var(--bg_default_light);
+    --bg_body: var(--bg_body_light);
+    --lines-color: var(--lines-color_light);
+    --body-text: var(--body-text_light);
+    --heart-color: var(--heart-color_light);
+    --star-color: var(--star-color_light);
+
+}
+
+body.dark-mode {
+    --bg_default: var(--bg_default_dark);
+    --bg_body: var(--bg_body_dark);
+    --lines-color: var(--lines-color_dark);
+    --body-text: var(--body-text_dark);
+    --heart-color: var(--heart-color_dark);
+    --star-color: var(--star-color_dark);
+}
+
+
+
+
+
+@media (max-width: 767px) {
+    .detials-page .details-of-course .card-details {
+        display: none !important;
+    }
+
+    .detials-page .details-of-course .card {
+        width: 100% !important;
+    }
+
+    .detials-page .details-of-course {
+        height: fit-content !important;
+    }
+    .detials-page .table-of-topics .sub-topics .table{
+        width: 100% !important;
+    }
+    .detials-page .table-of-topics .sub-topics .second-for-width{
+        display: none !important;
+    }
+    .small-screen-Fav{
+        display: flex !important;
+    }
+
+
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .detials-page .details-of-course .card {
+        width: 50% !important;
+    }
+    .detials-page .details-of-course .card-details{
+        width: 30% !important;
+    }
+    .detials-page .details-of-course{
+        height: 300px !important;
+    }
+    .detials-page .table-of-topics .sub-topics .table{
+        width: 50% !important;   
+    }
+    .detials-page .table-of-topics .sub-topics .second-for-width{
+        width: 30% !important;
+    }
+
+
+}
+
+
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .detials-page .details-of-course{
+        height: 255px !important;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.detials-page .details-of-course {
+    background-color: var(--bg-description-section);
+    height: 220px;
+    padding-bottom: 30px;
+    padding-top: 20px;
+}
+
+.detials-page .details-of-course .card-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.detials-page .details-of-course .card {
+    display: flex;
+    flex-direction: column;
+    width: 43%;
+    position: relative;
+}
+
+.detials-page .details-of-course .card .card-rating {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: var(--star-color);
+}
+
+.detials-page .details-of-course .card .card-rating ion-icon {
+    color: var(--star-color);
+}
+
+.detials-page .details-of-course .card h2 {
+    color: var(--brand-secondary);
+    text-transform: capitalize;
+    font-size: 16px;
+    font-weight: 100;
+}
+
+.detials-page .details-of-course .card h2 b {
+    color: var(--bg_default_light);
+    margin-top: 5px;
+}
+
+.detials-page .details-of-course .card .card-description {
+    color: var(--bg_default_light)
+}
+
+
+.detials-page .details-of-course .card-details {
+    width: 22%;
+}
+
+.detials-page .details-of-course .card-details .card {
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    background-color: var(--bg_default_light);
+
+}
+
+.detials-page .details-of-course .card-details .card img {
+    width: 100%;
+    object-fit: cover;
+    padding: 1px;
+}
+
+.detials-page .details-of-course .card-details .card .card-body {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+.detials-page .details-of-course .card-details .card .card-footer {
+    padding: 5px;
+    border: 1px solid var(--lines-color_light);
+    margin: 10px;
+}
+
+.detials-page .details-of-course .card-details .card .card-footer p {
+    margin: 5px;
+}
+
+.detials-page .details-of-course .card-details .card .card-footer p:last-child {
+    color: var(--lines-color_light);
+    font-size: 11px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.detials-page .details-of-course .card-details .card .card-footer button {
+    background-color: var(--brand-secondary);
+    color: var(--bg_default_light);
+    width: 90%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
+    border: 1px solid var(--brand-secondary);
+    gap: 20px;
+    margin: 10px auto
+}
+
+
+.small-screen-Fav{
+    background-color: var(--brand-secondary);
+    color: var(--bg_default_light);
+    width: 90%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
+    border: 1px solid var(--brand-secondary);
+    gap: 20px;
+    margin: 10px auto;
+    position: absolute;
+    width: 40%;
+    height: 40px;
+    right: 0px;
+    top: -12px;
+    display: none;
+}
+.small-screen-Fav ion-icon{
+    font-size: 20px;
+}
+
+
+
+.detials-page .details-of-course .card-details .card .card-footer button ion-icon {
+    font-size: 24px;
+}
+
+
+
+/* table of topics start */
+
+.detials-page .table-of-topics {
+    background-color: var(--bg_body);
+    padding-bottom: 20px;
+    padding-top: 30px;
+}
+
+
+
+
+
+.detials-page .table-of-topics .sub-topics {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 30px;
+
+}
+
+.detials-page .table-of-topics .sub-topics .table {
+    border: 1px solid var(--lines-color);
+    border-radius: 5px;
+    background-color: var(--bg_default);
+    width: 43%;
+}
+
+.detials-page .table-of-topics .sub-topics .table .sub-title {
+    border-bottom: 1px solid var(--lines-color);
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 10px 10px 10px 20px;
+    gap: 20px;
+}
+
+.detials-page .table-of-topics .sub-topics .table .sub-title p {
+    color: var(--body-text);
+}
+
+.detials-page .table-of-topics .sub-topics .table .sub-title ion-icon {
+    color: var(--brand-secondary)
+}
+
+
+
+.detials-page .table-of-topics .sub-topics .table .table-title {
+    border-bottom: 1px solid var(--lines-color);
+    padding: 10px 10px 10px 20px;
+}
+
+.detials-page .table-of-topics .sub-topics .table .table-title h2 {
+    font-weight: bold;
+    font-size: 22px;
+    color: var(--body-text);
+}
+
+.detials-page .table-of-topics .sub-topics .second-for-width {
+    width: 22%;
+    visibility: hidden;
+}
+
+
+/* table of topics end */

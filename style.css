@@ -18,7 +18,6 @@
 }
 
 
-
 :root {
 
   --bg_default_light: #FFFFFF;
@@ -36,10 +35,10 @@
   --lines-color_dark: #000000;
   --body-text_dark: #EDEDED;
   --heart-color_dark: #DC143C;
-  --brand-secondary: #03C180; 
+  --brand-secondary: #03C180;
   --brand-primary: #0768AC;
   --star-color_dark: #E69820;
-  
+
 }
 
 body.light-mode {
@@ -114,17 +113,18 @@ body.dark-mode {
     border-bottom-right-radius: 10px !important;
   }
 
-  main .cards-container .card{
+  main .cards-container .card {
     width: 100% !important;
     justify-content: center;
     align-items: center;
+    height: 100% !important;
   }
 
 }
 
 
 @media (min-width: 768px) and (max-width: 991px) {
-  main .cards-container .card{
+  main .cards-container .card {
     width: calc(33% - 5px) !important;
   }
 }
@@ -132,7 +132,7 @@ body.dark-mode {
 
 
 @media (min-width: 992px) and (max-width: 1199px) {
-  main .cards-container .card{
+  main .cards-container .card {
     width: calc(25% - 8px) !important;
   }
 }
@@ -142,9 +142,10 @@ body.dark-mode {
 
 
 /* header styling starts */
-header{
+header {
   background-color: var(--bg_default);
 }
+
 header nav {
   display: flex;
   justify-content: space-between;
@@ -209,7 +210,8 @@ header .header-title::after {
 header .header-title .description-of-header h2 {
   color: var(--brand-secondary);
 }
-header .header-title .description-of-header  {
+
+header .header-title .description-of-header {
   color: var(--body-text);
 }
 
@@ -250,14 +252,14 @@ main .search-container .select-container {
   width: 30%;
   display: flex;
   flex-direction: row;
-  
+
 }
 
 main .search-container .select-container .sort,
 main .search-container .select-container .filter {
   width: 50%;
   position: relative;
-  
+
 }
 
 main .search-container .select-container label,
@@ -280,7 +282,7 @@ main .search-container .select-container select {
 main .search-container .select-container #filter {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  
+
 }
 
 
@@ -311,12 +313,13 @@ main .cards-container .card {
   width: calc(20% - 8px);
   overflow: hidden;
   text-decoration: none;
+  height: 292px;
 }
 
 
 main .cards-container .card img {
-  width: 100%; 
-  object-fit: cover; 
+  width: 100%;
+  object-fit: cover;
 }
 
 main .cards-container .card .card-body {
@@ -330,24 +333,25 @@ main .cards-container .card .card-body p {
   padding: 0 10px;
   color: var(--body-text);
 }
+
 main .cards-container .card .card-body span {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
 main .cards-container .card .card-body .star-rating {
   padding-left: 10px;
   display: flex;
   flex-direction: row;
 }
-main .cards-container .card .card-body .star-rating .checked {
-  color: var(--star-color); 
- 
-}
-main .cards-container .card .card-body .star-rating{
-  color: var(--body-text);
+
+main .cards-container .card .card-body .star-rating {
+  color: var(--star-color_dark);
+
 }
 
-main .cards-container .card .card-footer{
+
+main .cards-container .card .card-footer {
   display: flex;
   justify-content: flex-start;
   width: 100%;
@@ -367,7 +371,7 @@ main .cards-container .card .card-footer p {
 
 
 /* footer starts */
-footer{
+footer {
   background-color: var(--bg_body);
   display: flex;
   justify-content: center;
@@ -382,4 +386,71 @@ footer p {
 footer span {
   color: var(--heart-color);
 }
+
+
 /* footer ends */
+
+
+
+.favoritss {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+  height: fit-content;
+  background-color: var(--bg_default);
+  position: fixed;
+  opacity: 0;
+  bottom: -100%; 
+  transition: opacity 0.6s ease, bottom 0.6s ease;
+  
+}
+
+.favoritss h2 {
+  color: var(--body-text);
+
+}
+
+
+.favoritss.active{
+  opacity: 1;
+  bottom: 0;
+  transition: opacity 0.6s ease, bottom 0.6s ease;
+
+  
+} 
+
+.favoritss .favorit-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.favoritss .favorit-card-container a {
+  height: 100px;
+  width: 100px;
+  text-decoration: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.favoritss .favorit-card-container a p {
+  color: var(--body-text);
+}
+
+.favoritss .favorit-card-container a img {
+  object-fit: cover;
+  width: 100%;
+}
+
+.favoritss .favorit-card-container a .star-rating {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+}
+
+.favoritss .favorit-card-container a .star-rating ion-icon {
+  color: var(--star-color);
+}
+
