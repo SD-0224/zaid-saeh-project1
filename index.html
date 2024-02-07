@@ -1,0 +1,207 @@
+<!DOCTYPE html >
+<html lang="en" class="light-mode" >
+
+<head>
+    <!-- meta starts -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="auther" content="Zaid Saeh" />
+    <meta name="discription"
+        content="This is a simple project addressed by the TAP community for the evaluation purposes of students." />
+    <meta name="keywords" content="HTML, CSS, JAVASCRIPT, TAP, TAPpers" />
+    <!-- meta ends -->
+    <!-- css  links start -->
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.0.1/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- css style link ends -->
+    <!-- title starts -->
+    <title>Web Topics </title>
+    <!-- title ends -->
+</head>
+
+<body class="light-mode">
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo-title">
+                    <h2>web topics</h2>
+                </div>
+                <ul>
+                    <button aria-label="Toggle dark mode" onclick="toggleDarkMode()" >
+                        <ion-icon aria-hidden="true" name="moon-outline"></ion-icon>
+                        <span>dark mode</span>
+                    </button>
+                    <button aria-label="Add to favorites">
+                        <ion-icon aria-hidden="true" name="heart-outline"></ion-icon>
+                        <span>favorites</span>
+                    </button>
+                </ul>
+            </nav>
+        </div>
+        <section class="header-title"  role="banner">
+            <div class="container">
+                <div class="description-of-header">
+                    <h2>Welcome to our website!</h2>
+                    <p>We have a new design thats fresh, modern and easy to use</p>
+                </div>
+            </div>
+        </section>
+    </header>
+    <main>
+        <div class="container">
+            <section class="search-container">
+                <div class="search-input">
+                    <input type="search" placeholder="Search the website" />
+                    <ion-icon name="search-outline"></ion-icon>
+                </div>
+                <div class="select-container">
+                    <div class="sort" role="group"  aria-labelledby="sort-label" >
+                        <label id="sort-label"  for="sort">Sort by:</label>
+                        <select id="sort">
+                            <option value="default">Default</option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                    </div>
+
+                    <div class="filter" role="group"  aria-labelledby="filter-label">
+                        <label id="filter-label"  for="filter">Filter by:</label>
+                        <select id="filter">
+                            <option value="default">Default</option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                    </div>
+
+                </div>
+            </section>
+            <section class="searched-found">
+                <h2>"<span>24</span>" topics were found</h2>
+            </section>
+            <section class="cards-container">
+                
+                <a href="cardName.html" class="card">
+                    <img src="./images/html.png" alt="html logo" />
+                    <div class="card-body">
+                        <p class="card-title">Web Development Languages <b>HTML</b></p>
+                        <div class="star-rating">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <p class="auther" aria-label="Author" >Auther Sarah Smith</p>
+                    </div>
+                </a>
+                <a href="cardName.html" class="card">
+                    <img src="./images/html.png" alt="html logo" />
+                    <div class="card-body">
+                        <p class="card-title">Web Development Languages <b>HTML</b></p>
+                        <div class="star-rating">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <p class="auther" aria-label="Author" >Auther Sarah Smith</p>
+                    </div>
+                </a>
+                <a href="cardName.html" class="card">
+                    <img src="./images/html.png" alt="html logo" />
+                    <div class="card-body">
+                        <p class="card-title">Web Development Languages <b>HTML</b></p>
+                        <div class="star-rating">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <p class="auther" aria-label="Author" >Auther Sarah Smith</p>
+                    </div>
+                </a>
+                <a href="cardName.html" class="card">
+                    <img src="./images/html.png" alt="html logo" />
+                    <div class="card-body">
+                        <p class="card-title">Web Development Languages <b>HTML</b></p>
+                        <div class="star-rating">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <p class="auther" aria-label="Author" >Auther Sarah Smith</p>
+                    </div>
+                </a>
+                <a href="cardName.html" class="card">
+                    <img src="./images/html.png" alt="html logo" />
+                    <div class="card-body">
+                        <p class="card-title">Web Development Languages <b>HTML</b></p>
+                        <div class="star-rating">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <p class="auther" aria-label="Author" >Auther Sarah Smith</p>
+                    </div>
+                </a>
+                <a href="cardName.html" class="card">
+                    <img src="./images/html.png" alt="html logo" />
+                    <div class="card-body">
+                        <p class="card-title">Web Development Languages <b>HTML</b></p>
+                        <div class="star-rating">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <p class="auther" aria-label="Author" >Auther Sarah Smith</p>
+                    </div>
+                </a>
+                
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Develop with <span><i class="fa-solid fa-heart"></i></span> &#169; 2023 </p>
+        </div>
+    </footer>
+</body>
+
+<script>
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+    }
+</script>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+</html>
