@@ -111,7 +111,8 @@ fetch('data.json')
                 `
                     <img src="./images/${element.image}" alt="html logo" />
                     <div class="card-body">
-                        <p class="card-title">${element.category} <b>${element.topic}</b></p>
+                        <p class="card-title">${element.category} </p>
+                        <p class="card-topic">${element.topic}</p>
                         <div class="star-rating">
                         ${generateStars(element.rating)}
                         </div>
