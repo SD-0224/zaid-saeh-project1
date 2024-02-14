@@ -152,6 +152,7 @@ body{
   height: 100vh;
   overflow: hidden;
   overflow-y: scroll;
+  background-color: var(--bg_body_light);
 }
 
 
@@ -414,7 +415,7 @@ footer {
   justify-content: center;
   /* align-items: center; */
   padding-bottom: 20px;
-  height: 13%;
+  /* height: 13%; */
 }
 
 footer p {
