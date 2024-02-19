@@ -135,6 +135,17 @@ const favoritss = document.querySelector(".favoritss");
 
 favButton.addEventListener('click', ()=>{
     favoritss.classList.toggle('active');   
-})
+});
+
+// sort toggle
+
+let sort = document.querySelector('.sort-toggle'); 
+let selectSort = document.querySelector("#sort");
+
+sort.addEventListener('click',()=>{
+  selectSort.focus(); 
+  selectSort.click(); 
+});
+
 
 
