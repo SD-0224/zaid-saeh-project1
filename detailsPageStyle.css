@@ -92,7 +92,7 @@ body.dark-mode {
     }
 
     .detials-page .details-of-course .card-details {
-        width: 30% !important;
+        width: 42% !important;
     }
 
     .detials-page .table-of-topics .sub-topics .table {
@@ -100,7 +100,7 @@ body.dark-mode {
     }
 
     .detials-page .table-of-topics .sub-topics .second-for-width {
-        width: 30% !important;
+        width: 42% !important;
     }
 
 
@@ -125,25 +125,13 @@ body.dark-mode {
 
 @media (min-width: 992px) and (max-width: 1199px) {
 
-    .detials-page .details-of-course .card-details .card {
+    .detials-page .details-of-course .card-details{
+        width: 35% !important;
+    }
+    .detials-page .table-of-topics .sub-topics .second-for-width {
         width: 35% !important;
     }
 
-    .detials-page .details-of-course .card-details .card .card-footer button {
-        font-size: 17px !important;
-    }
-
-    .detials-page .details-of-course .card-details .card .card-footer button ion-icon {
-        font-size: 22px !important;
-    }
-
-}
-
-
-@media (min-width:1200px) and (max-width:1300px) {
-    .detials-page .details-of-course .card-details .card {
-        width: 31% !important;
-    }
 }
 
 
@@ -166,7 +154,7 @@ body.dark-mode {
 .detials-page .details-of-course .card {
     display: flex;
     flex-direction: column;
-    width: 48%;
+    width: 47%;
     position: relative;
 }
 
@@ -196,21 +184,22 @@ body.dark-mode {
 }
 
 .detials-page .details-of-course .card .card-description {
-    color: var(--bg_default_light)
+    color: var(--bg_default_light);
+    font-size:18px;
 }
 
 
 .detials-page .details-of-course .card-details {
-    width: 22%;
+    width: 25%;
+    position: relative;
 }
 
 .detials-page .details-of-course .card-details .card {
     display: flex;
     flex-direction: column;
-    width: 24%;
+    width: 100% !important;
     background-color: var(--bg_default_light);
     position: absolute;
-
 }
 
 .detials-page .details-of-course .card-details .card img {
@@ -220,8 +209,7 @@ body.dark-mode {
 }
 
 .detials-page .details-of-course .card-details .card .card-body {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 20px;
     padding-left: 10px;
 }
 
@@ -290,15 +278,14 @@ body.dark-mode {
     border: 1px solid var(--lines-color);
     border-radius: 5px;
     background-color: var(--bg_default);
-    width: 48%;
+    width: 47%;
 }
 
 .detials-page .table-of-topics .sub-topics .table .sub-title {
     border-bottom: 1px solid var(--lines-color);
     display: flex;
-    align-items: center;
     flex-direction: row;
-    padding: 10px 10px 10px 20px;
+    padding: 10px 10px 5px 20px;
     gap: 20px;
 }
 
@@ -307,7 +294,8 @@ body.dark-mode {
 }
 
 .detials-page .table-of-topics .sub-topics .table .sub-title ion-icon {
-    color: var(--brand-secondary)
+    color: var(--brand-secondary);
+    font-size: 20px;
 }
 
 
@@ -324,7 +312,7 @@ body.dark-mode {
 }
 
 .detials-page .table-of-topics .sub-topics .second-for-width {
-    width: 22%;
+    width: 25%;
     visibility: hidden;
 }
 

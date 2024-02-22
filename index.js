@@ -109,7 +109,7 @@ fetch('data.json')
             card.classList.add('card');
             card.innerHTML =
                 `
-                    <img src="./images/${element.image}" alt="html logo" />
+                    <img src="./images/${element.image}" alt="html logo" width="100" height="100"  loading="lazy"  />
                     <div class="card-body">
                         <p class="card-title">${element.category} </p>
                         <p class="card-topic">${element.topic}</p>
