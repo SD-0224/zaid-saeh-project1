@@ -6,19 +6,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="auther" content="Zaid Saeh" />
-    <meta name="description" content="This is a simple project addressed by the TAP community for the evaluation purposes of students.">
+    <meta name="description"
+        content="This is a simple project addressed by the TAP community for the evaluation purposes of students.">
     <meta name="keywords" content="HTML, CSS, JAVASCRIPT, TAP, TAPpers" />
     <!-- meta ends -->
     <!-- css  links start -->
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="./detailsPageStyle.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.0.1/css/ionicons.min.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/detailsPageStyle.css" />
     <!-- css style link ends -->
     <!-- title starts -->
-    <title>Web Topics | card name </title>
+    <title class="title-of-page">Web Topics | card name </title>
     <!-- title ends -->
 </head>
 
@@ -30,14 +27,18 @@
                     <h2>web topics</h2>
                 </div>
                 <ul>
-                    <button aria-label="Toggle dark mode" onclick="toggleDarkMode()">
-                        <ion-icon aria-hidden="true" name="moon-outline"></ion-icon>
-                        <span>dark mode</span>
-                    </button>
-                    <button aria-label="Add to favorites" class="favorit-button" >
-                        <ion-icon aria-hidden="true" name="heart-outline"></ion-icon>
-                        <span>favorites</span>
-                    </button>
+                    <li>
+                        <button class="dark-mode-click" aria-label="Toggle dark mode">
+                            <ion-icon aria-hidden="true" name="moon-outline"></ion-icon>
+                            <span>dark mode</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button aria-label="Add to favorites" class="favorit-button">
+                            <ion-icon aria-hidden="true" name="heart-outline"></ion-icon>
+                            <span>favorites</span>
+                        </button>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -51,84 +52,7 @@
         </section>
     </header>
     <div class="detials-page">
-        <section class="details-of-course">
-            <div class="container">
-                <div class="card-container">
-                    <div class="card">
-                        <h2 class="card-category">
-                            web development languages
-                            <br />
-                            <b class="card-topic">HTML</b>
-                        </h2>
-                        <div class="card-rating">
-                            <span><ion-icon name="star"></ion-icon></span>
-                            <span><ion-icon name="star"></ion-icon></span>
-                            <span><ion-icon name="star"></ion-icon></span>
-                            <span><ion-icon name="star"></ion-icon></span>
-                            <span><ion-icon name="star-outline"></ion-icon></span>
-                        </div>
-                        <p class="card-description">
-                            HTML (Hypertext Markup Language) is the standard markup language for creating web pages and
-                            other information that can be displayed in a web browser. It provides a structure for
-                            content and defines how it should be displayed on a web page, including text, images, and
-                            multimedia. HTML is essential for creating static web pages and is a foundational technology
-                            for the World Wide Web.
-                        </p>
-                    </div>
-                    <div class="card-details">
-                        <div class="card">
-                            <img src="./images/javascript.jpg" alt="card-image" />
-                            <div class="card-body">
-                                <p class="card-auther"><b>HTML</b> by <a href="#">Sarah Semith</a></p>
-                            </div>
-                            <div class="card-footer">
-                                <p>Intersted about this topic?</p>
-                                <button>Add to favorits <ion-icon name="heart-outline"></ion-icon></button>
-                                <p>Unlimited Credits</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-        <section class="table-of-topics">
-            <div class="container">
-                <div class="sub-topics">
-                    <div class="table">
-                        <div class="table-title">
-                            <h2>HTML Sub Topics</h2>
-                        </div>
-                        <div class="sub-title">
-                            <span><ion-icon name="checkmark-circle-outline"></ion-icon></span>
-                            <p>HTML syntax and structure</p>
-                        </div>
-                        <div class="sub-title">
-                            <span><ion-icon name="checkmark-circle-outline"></ion-icon></span>
-                            <p>HTML elements and attributes</p>
-                        </div>
-                        <div class="sub-title">
-                            <span><ion-icon name="checkmark-circle-outline"></ion-icon></span>
-                            <p>HTML forms and input elements</p>
-                        </div>
-                        <div class="sub-title">
-                            <span><ion-icon name="checkmark-circle-outline"></ion-icon></span>
-                            <p>HTML tables and lists</p>
-                        </div>
-                        <div class="sub-title">
-                            <span><ion-icon name="checkmark-circle-outline"></ion-icon></span>
-                            <p>HTML multimedia elements (audio, video, images)</p>
-                        </div>
-                        <div class="sub-title">
-                            <span><ion-icon name="checkmark-circle-outline"></ion-icon></span>
-                            <p>HTML accessibility and semantic markup</p>
-                        </div>
-                    </div>
-                    <div class="second-for-width">
-                    </div>
-                </div>
-            </div>
-        </section>
+        
     </div>
     <footer>
         <div class="container">
@@ -139,48 +63,18 @@
         <div class="container">
             <h2>My Favorite Topics</h2>
             <div class="favorit-card-container">
-                <a href="cardName.html" class="card">
-                    <img src="./images/css.webp" alt="html logo" />
-                    <div class="card-body">
-                        <p class="card-title"><b>CSS</b></p>
-                        <div class="star-rating">
-                            <span><ion-icon name="star"></ion-icon></span>
-                            <span><ion-icon name="star"></ion-icon></span>
-                            <span><ion-icon name="star"></ion-icon></span>
-                            <span><ion-icon name="star-half"></ion-icon></span>
-                            <span><ion-icon name="star-outline"></ion-icon></span>
-                        </div>
-                    </div>
-                </a>
-                <a href="cardName.html" class="card">
-                    <img src="./images/css.webp" alt="html logo" />
-                    <div class="card-body">
-                        <p class="card-title"><b>CSS</b></p>
-                        <div class="star-rating">
-                            <span><ion-icon name="star"></ion-icon></span>
-                            <span><ion-icon name="star"></ion-icon></span>
-                            <span><ion-icon name="star"></ion-icon></span>
-                            <span><ion-icon name="star-half"></ion-icon></span>
-                            <span><ion-icon name="star-outline"></ion-icon></span>
-                        </div>
-                    </div>
-                </a>
             </div>
         </div>
     </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="./services/api-calls/cardName.js"></script>
+    <script type="module" src="./pages/cardDetailes.js"></script>
+    <script type="module" src="./component/favoriteButton.js"></script>
 </body>
 
-<script>
-    function toggleDarkMode() {
-        document.body.classList.toggle('dark-mode');
-    }
-</script>
 
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
-    integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="./index.js"></script>
+
 
 </html>
