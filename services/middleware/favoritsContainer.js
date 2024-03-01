@@ -1,29 +1,22 @@
 import { generateStars } from "./generateRating.js";
 const myFavorites = document.querySelector('.favorit-card-container');
 
-
-const favorites = JSON.parse(localStorage.getItem('favoritesArray')) || [];
-
-
 export const openFavoriteContainer = () => {
-    favorites.map((ele)=>{
+    myFavorites.innerHTML = ''; 
+    const favorites = JSON.parse(localStorage.getItem('favoritesArray')) || [];
+    favorites.forEach((favorite) => {
         const a = document.createElement('a');
         a.classList.add('card');
-        a.setAttribute('href', `cardName.html?id=${ele.id}`);
-        myFavorites.appendChild(a);
-        a.innerHTML =
-    
-          `
-        <img src="${ele.image}" alt="${ele.topic}" />
-        <div class="card-body">
-            <p class="card-title"><b>${ele.topic}</b></p>
-            <div class="star-rating">
-                ${generateStars(ele.rating)}
+        a.setAttribute('href', `cardName.html?id=${favorite.id}`);
+        a.innerHTML = `
+            <img src="${favorite.image}" alt="${favorite.topic}" />
+            <div class="card-body">
+                <p class="card-title"><b>${favorite.topic}</b></p>
+                <div class="star-rating">
+                    ${generateStars(favorite.rating)}
+                </div>
             </div>
-        </div>
-        `
-    })
-
-}
-
-
+        `;
+        myFavorites.appendChild(a);
+    });
+};

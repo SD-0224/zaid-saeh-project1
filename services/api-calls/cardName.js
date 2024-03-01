@@ -1,5 +1,7 @@
 import URLs from '../urls.js';
 import { clickFavoriteButton } from "../../component/favoriteButton.js";
+import { openFavoriteContainer } from '../middleware/favoritsContainer.js';
+
 
 import { generateStars } from '../middleware/generateRating.js';
 const detialsPage = document.querySelector('.detials-page');
@@ -8,8 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const cardId = urlParams.get('id');
-    const cardTitle = document.querySelector('.title-of-page'); 
-    
+    const cardTitle = document.querySelector('.title-of-page');
+
 
     const cardIdFetch = async () => {
         try {
@@ -80,56 +82,74 @@ document.addEventListener("DOMContentLoaded", function () {
                 `;
 
 
-                const cardDetailPage = document.querySelector('.card-detail-page');
-                let favoritesArray = JSON.parse(localStorage.getItem('favoritesArray')) || [];
-                
-                const getCardInfo = () => {
-                    const id = cardDetailPage.getAttribute('id');
-                    const topic = cardDetailPage.querySelector('.card-topic').innerText;
-                    const rating = cardDetailPage.querySelector('.card-rating').getAttribute('id');
-                    const image = document.querySelector('.card-details img').getAttribute('src');
-                
-                    return { id, topic, rating, image };
-                }
-                
-                const setInitialMode = () => {
-                    const addToFavorites = document.querySelector('.add-to-favorites');
-                    if (favoritesArray.some(ele => ele.id === getCardInfo().id)) {
-                        addToFavorites.innerHTML = `Remove from favorites <ion-icon name="heart"></ion-icon>`;
-                    } else {
-                        addToFavorites.innerHTML = `Add to favorites <ion-icon name="heart-outline"></ion-icon>`;
-                    }
-                }
-                
+            const cardDetailPage = document.querySelector('.card-detail-page');
+            let favoritesArray = JSON.parse(localStorage.getItem('favoritesArray')) || [];
+
+            const getCardInfo = () => {
+                const id = cardDetailPage.getAttribute('id');
+                const topic = cardDetailPage.querySelector('.card-topic').innerText;
+                const rating = cardDetailPage.querySelector('.card-rating').getAttribute('id');
+                const image = document.querySelector('.card-details img').getAttribute('src');
+
+                return { id, topic, rating, image };
+            }
+
+            const setInitialMode = () => {
                 const addToFavorites = document.querySelector('.add-to-favorites');
                 
                 
-                const updateFavorites = () => {
-                    localStorage.setItem('favoritesArray', JSON.stringify(favoritesArray));
+                if (favoritesArray.some(ele => ele.id === getCardInfo().id)) {
+                    addToFavorites.innerHTML = `Remove from favorites <ion-icon name="heart"></ion-icon>`;
+
+                } else {
+                    addToFavorites.innerHTML = `Add to favorites <ion-icon name="heart-outline"></ion-icon>`;
                 }
-                
-                setInitialMode();
-                
-                addToFavorites.addEventListener('click', () => {
-                    addToFavorites.classList.toggle('active');
-                    const cardInfo = getCardInfo();
-                
-                    if (addToFavorites.classList.contains('active')) {
-                        const isAlreadyAdded = favoritesArray.some(card => card.id === cardInfo.id);
-                        if (!isAlreadyAdded) {
-                            favoritesArray.push(cardInfo);
-                            updateFavorites();
-                        }
-                    } else {
-                        const indexToRemove = favoritesArray.findIndex(card => card.id === cardInfo.id);
-                        if (indexToRemove !== -1) {
-                            favoritesArray.splice(indexToRemove, 1);
-                            updateFavorites();
-                        }
+            }
+
+            const addToFavorites = document.querySelector('.add-to-favorites');
+
+
+            const updateFavorites = () => {
+                localStorage.setItem('favoritesArray', JSON.stringify(favoritesArray));
+
+            }
+
+            setInitialMode();
+
+
+
+            addToFavorites.addEventListener('click', () => {
+                addToFavorites.classList.toggle('active');
+                const cardInfo = getCardInfo();
+
+                const favoritss = document.querySelector(".favoritss"); 
+               
+
+                if (addToFavorites.classList.contains('active')) {
+                    const isAlreadyAdded = favoritesArray.some(card => card.id === cardInfo.id);
+                    if (!isAlreadyAdded) {
+                        favoritesArray.push(cardInfo);
+
+                        updateFavorites();
+                    
+
                     }
-                    setInitialMode();
-                });
-                
+                } else {
+                    const indexToRemove = favoritesArray.findIndex(card => card.id === cardInfo.id);
+                    if (indexToRemove !== -1) {
+                        favoritesArray.splice(indexToRemove, 1);
+
+                        updateFavorites();
+                        
+                    }
+                }
+                favoritss.classList.toggle('active');
+                openFavoriteContainer();
+                setInitialMode();
+
+
+            });
+
 
         } catch (error) {
             console.error('Error fetching data:', error);

@@ -1,6 +1,6 @@
+import { generateStars } from "../middleware/generateRating.js";
 let cardContainer = document.querySelector('.card-container-main-page');
 let counter = document.querySelector(".counter");
-import { generateStars } from "../middleware/generateRating.js";
 
 export const render = (data) => {
     let count = 0;
