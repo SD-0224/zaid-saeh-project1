@@ -61,9 +61,9 @@
                 <div class="select-container">
                     <div class="sort" role="group" aria-labelledby="sort-label">
                         <label id="sort-label" for="sort">Sort by:</label>
-                        <select id="sort">
-                            <option value="default">Default</option>
-                            <option value="topic">Topic Title</option>
+                        <select name="sort" id="sort">
+                            <option value="default" selected>Default</option>
+                            <option value="topic" >Topic Title</option>
                             <option value="author">Author Name</option>
                         </select>
                         <ion-icon data-target="sort" class="sort-toggle" name="chevron-down-outline"></ion-icon>
@@ -72,7 +72,7 @@
                     <div class="filter" role="group" aria-labelledby="filter-label">
                         <label id="filter-label" for="filter">Filter by:</label>
                         <select id="filter">
-                            <option value="default">Default</option>
+                            <option value="default" selected>Default</option>
                             <option value="category">Category</option>
                         </select>
                         <ion-icon class="filter-toggle" name="chevron-down-outline"></ion-icon>
