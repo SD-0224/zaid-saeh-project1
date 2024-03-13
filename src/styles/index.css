@@ -1,0 +1,77 @@
+@font-face {
+    font-family: 'Nunito Sans';
+    src:
+      url('../assets/fonts/Nunito_Sans/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf') format('woff'),
+      url('../assets/fonts/Nunito_Sans/NunitoSans-Italic-VariableFont_YTLC\,opsz\,wdth\,wght.ttf') format('woff');
+  
+  }
+  
+  * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+  }
+
+
+  :root {
+
+    --bg_default: #FFFFFF;
+    --bg_body: #F0F9FF;
+    --lines-color: #dddddd;
+    --body-text: #333333;
+    --heart-color: #DC143C;
+    --star-color: #E69820;
+    --brand-secondary: #03C180;
+    --brand-primary: #0768AC;
+  
+  
+    --bg_default_dark: #1A1A1A;
+    --bg_body_dark: #282828;
+    --lines-color_dark: #000000;
+    --body-text_dark: #EDEDED;
+    --heart-color_dark: #DC143C;
+    --brand-secondary: #03C180;
+    --brand-primary: #0768AC;
+    --star-color_dark: #E69820;
+  
+  }
+  
+  body.light-mode {
+    --bg_default: var(--bg_default_light);
+    --bg_body: var(--bg_body_light);
+    --lines-color: var(--lines-color_light);
+    --body-text: var(--body-text_light);
+    --heart-color: var(--heart-color_light);
+    --star-color: var(--star-color_light);
+  
+  }
+  
+  body.dark-mode {
+    --bg_default: var(--bg_default_dark);
+    --bg_body: var(--bg_body_dark);
+    --lines-color: var(--lines-color_dark);
+    --body-text: var(--body-text_dark);
+    --heart-color: var(--heart-color_dark);
+    --star-color: var(--star-color_dark);
+  }
+
+  .container {
+    margin: 0px 80px;
+  }
+
+  body {
+    height: 100vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    background-color: var(--bg_body);
+  }
+
+  @media (max-width: 767px) {
+    .container {
+      margin: 0px 30px;
+    }
+  
+  }
+  
+  
