@@ -5,18 +5,18 @@ import { Button } from "./Button";
 export const CardDetails = ({ getCourse, addToFavorites, favoriteArray }) => {
 
     const favoriteText = (text) => {
-        if (!getCourse){
-             return "";
-        } else{
+        if (!getCourse) {
+            return "";
+        } else {
             const courses = JSON.parse(localStorage.getItem('favorites')) || [];
-            const isExist =  courses.some((ele) => ele.id === getCourse.id);
-            if(text === true){
-                return isExist ? "Remove from favorites"  : "Add to favorites";
-            } else{
-                return isExist ? "heart"  : "heart-outline";
+            const isExist = courses.some((ele) => ele.id === getCourse.id);
+            if (text === true) {
+                return isExist ? "Remove from favorites" : "Add to favorites";
+            } else {
+                return isExist ? "heart" : "heart-outline";
             }
-        }  
-        
+        }
+
     }
 
 

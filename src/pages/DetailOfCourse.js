@@ -5,17 +5,13 @@ import { Box } from "../components/Box";
 import { CardDetails } from "../components/CardDetails";
 import * as DetailsStyles from "../components/stylesOfComponent/DetailsPage.styles";
 import { Table } from "../components/Table";
-import { Favorite } from "../components/Favorits";
-import Header from "../components/Header";
+import { useFavoriteContext } from "../useContext/FavoriteContext";
 
-export default function DetailOfCourse(props) {
+export default function DetailOfCourse() {
     const params = useParams();
     const id = params.topic;
     const [getCourse, setGetCourse] = useState();
-    const favoriteArray = props.favoriteArray;
-    const setFavoriteArray =props.setFavoriteArray;
-    
-
+    const { favoriteArray, setFavoriteArray, setFavoriteAppear} = useFavoriteContext(); 
     const getCourseInfo = async () => {
         try {
             const response = await fetch(URLs.URL_Course + id);
@@ -37,17 +33,17 @@ export default function DetailOfCourse(props) {
         if(!favoriteArray.some((ele) => ele.id ===  getCourse.id)){
             setFavoriteArray(()=>updateFavorites); 
             localStorage.setItem('favorites', JSON.stringify(updateFavorites));
-            props.setFavoriteAppear(true); 
+            setFavoriteAppear(true); 
         }else {
             const removeFavorite = favoriteArray.filter((ele) => ele.id !== getCourse.id); 
             setFavoriteArray(removeFavorite); 
             localStorage.setItem('favorites', JSON.stringify(removeFavorite));
+            setFavoriteAppear(()=> true? true : true); 
         }      
     }
 
     return (
         <>
-            <Header favoriteAppearFunction ={props.favoriteAppearFunction} />
             <DetailsStyles.Section className="details-of-course" style={DetailsStyles.detailOfCourse}>
                 <div className="container">
                     <DetailsStyles.DivCardContainer className="card-container card-container-detail-page" style={DetailsStyles.cardContainer}>
@@ -59,7 +55,6 @@ export default function DetailOfCourse(props) {
                 </div>
             </DetailsStyles.Section>
             <Table getCourse={getCourse} />
-            <Favorite getCourse={getCourse}  favoriteAppear ={props.favoriteAppear}  favoriteArray= {favoriteArray}/>
         </>
     )
 }

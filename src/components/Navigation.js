@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "./Button";
 import * as NavigationStyle from "./stylesOfComponent/Navigation.styles"; 
+import { useFavoriteContext } from "../useContext/FavoriteContext";
 
 
-export default function Navigation(props) {
+export default function Navigation() {
     const [mode, setMode] = useState(
         localStorage.getItem("mode") === null
             ? "light"
@@ -11,6 +12,8 @@ export default function Navigation(props) {
                 ? "light"
                 : "dark"
     );
+
+    const { favoriteAppearFunction } = useFavoriteContext();
 
 
     useEffect(() => {
@@ -41,7 +44,7 @@ export default function Navigation(props) {
                     <Button className={"dark-mode-click"} icon={changeIconMode()} text={changeTextMode()} style={NavigationStyle.ButtonStyle} click={toggleDarkMode} Span = {NavigationStyle.Span} />
                 </li>
                 <li style={{ listStyle: 'none' }}>
-                    <Button className={"favorite-button"} icon={"heart-outline"} text={"favorites"} style={NavigationStyle.ButtonStyle}  Span = {NavigationStyle.Span}  click= {props.favoriteAppearFunction} />
+                    <Button className={"favorite-button"} icon={"heart-outline"} text={"favorites"} style={NavigationStyle.ButtonStyle}  Span = {NavigationStyle.Span}  click= {favoriteAppearFunction} />
                 </li>
             </ul>
         </nav>

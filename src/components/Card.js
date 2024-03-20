@@ -1,48 +1,32 @@
 import React from "react";
 import { generateStars } from "./GlobalFunction/GenerateStars";
+import * as CardStyle from "./stylesOfComponent/Card.styles"; 
+import { Link } from 'react-router-dom';
 export const Card = ({
     CardId,
     hRef,
-    cardStyle,
     imageSrc,
     imageAlt,
-    imgStyle,
-    cardBodyStyle,
-    classNameOfCardBody,
-    classNameOfCardTitle,
-    cardTitleStyle,
     titleText,
     topicText,
-    classNameOfCardTopic,
-    classNameOfCardFooter,
     footerText,
-    footerTextClassName,
-    classNameOfFunction,
-    cardTopicStyle,
-    functionStyle,
-    spanStyle,
-    footerTextStyle,
-    footerCardStyle,
     rating,
-    A,
-    Img,
+}) => { 
 
+    const spanStyle = CardStyle.spanStyle; 
+    const functionStyle = CardStyle.functionStyle;
 
-}) => {
-
-    
     return (
-
-        <A id={CardId} href={hRef} style={cardStyle}>
-            <img src={imageSrc} alt={imageAlt}  style={imgStyle} />
-            <div className={classNameOfCardBody} style={cardBodyStyle} >
-                <p className={classNameOfCardTitle} style={cardTitleStyle} >{titleText} </p>
-                <p className={classNameOfCardTopic} style={cardTopicStyle}>{topicText}</p>
-                {generateStars({rating, spanStyle, functionStyle,classNameOfFunction} )}
+        <Link id={CardId} to={hRef} style={CardStyle.cardStyle}>
+            <CardStyle.ImgCard src={imageSrc} alt={imageAlt}  style={CardStyle.imgCardStyle} />
+            <div  style={CardStyle.cardBodyStyle} >
+                <p  style={CardStyle.cardTitleStyle} >{titleText} </p>
+                <p  style={CardStyle.cardTopicStyle}>{topicText}</p>
+                {generateStars({rating, spanStyle, functionStyle} )}
             </div>
-            <div className={classNameOfCardFooter} style={footerCardStyle}>
-                <p className={footerTextClassName} style={footerTextStyle}>{footerText} </p>
+            <div  style={CardStyle.footerCardStyle}>
+                <p style={CardStyle.footerTextStyle}>{footerText} </p>
             </div>
-        </A>
+        </Link>
     )
 }

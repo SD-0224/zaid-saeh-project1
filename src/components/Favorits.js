@@ -1,26 +1,21 @@
 import React from "react";
-import { Card } from "./Card";
 import * as FavoriteStyles from "./stylesOfComponent/Favorite.styles";
+import { useFavoriteContext } from "../useContext/FavoriteContext";
+import { FavoriteCard } from "./FavoriteCard";
 
-export const Favorite = ({ favoriteAppear, favoriteArray }) => {
-
-    const favoriteMap = favoriteArray.map((ele =>
-        <Card
+export const Favorite = () => {
+    const { favoriteAppear, favoriteArray } = useFavoriteContext();
+    const favoriteMap = favoriteArray && favoriteArray.map((ele =>
+        <FavoriteCard
             key={ele.id}
-            A={FavoriteStyles.ACard}
-            Img={FavoriteStyles.CardImg} 
             id={ele.id}
             hRef={`/detailOfCourse/${ele.id}`}
             imageSrc={require(`../assets/images/${ele.image}`)}
             imageAlt={ele.topic}
-            cardBodyStyle={FavoriteStyles.cardBody}
-            cardTopicStyle={FavoriteStyles.cardTopic}
             topicText={ele.topic}
             rating={ele.rating}
-            functionStyle={FavoriteStyles.functionStyle}
-            imgStyle= {FavoriteStyles.imageStyle}
         />
-    ))
+    ));
 
     return (
         <div className="favoritss" style={favoriteAppear ? FavoriteStyles.favoriteActive : FavoriteStyles.favorite} >

@@ -1,6 +1,4 @@
 import React from "react";
-
-
 export const Select = ({
     classNameOfSelectContainer, 
     styleOfSelectContainer, 

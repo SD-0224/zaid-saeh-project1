@@ -7,9 +7,9 @@ import Header from "../components/Header";
 export default function Home(props) {
     return (
         <>
-            <Header favoriteAppearFunction ={props.favoriteAppearFunction} />
+            {/* <Header favoriteAppearFunction ={props.favoriteAppearFunction} /> */}
             <Main />
-            <Favorite favoriteAppear= {props.favoriteAppear} favoriteArray={props.favoriteArray} />
+            {/* <Favorite favoriteAppear= {props.favoriteAppear} favoriteArray={props.favoriteArray} /> */}
         </>
 
     )

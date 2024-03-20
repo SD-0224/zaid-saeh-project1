@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 export const cardStyle = {
     display: "flex",
     flexDirection: "column",
@@ -9,7 +9,10 @@ export const cardStyle = {
     overflow: "hidden",
     textDecoration: "none",
     height: "fit-content",
-    color: "var(--body-text)"
+    color: "var(--body-text)",
+    width:'100%',
+    height:'100%', 
+
 }
 
 export const imgCardStyle = {
@@ -67,16 +70,6 @@ export const footerTextStyle = {
     fontWeight: 100,
     fontSize: "14px",
 }
-
-
-export const AOfCard = styled.a`
-@media (max-width: 767px) {
-width: 100% !important;
-justify-content: center;
-align-items: center;
-height: 100% !important;
-}
-`;
 
 export const ImgCard = styled.img`
 @media (max-width: 767px) {

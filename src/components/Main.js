@@ -5,10 +5,11 @@ import CounterOfCourses from "./CounterOfCourses";
 import { Card } from "./Card";
 import * as SearchStyles from './stylesOfComponent/Search.styles';
 import * as SelectStyles from "./stylesOfComponent/Select.styles";
-import * as CardStyles from './stylesOfComponent/Card.styles';
 import URLs from "../config/Urls";
 import { Loader } from "./Loader";
-
+import { fetchCourses } from "../config/FetchingFunction/GetCourses";
+import { searchFetch } from "../config/FetchingFunction/SearchFetch";
+import { filterFunction } from "./GlobalFunction/FilterFunction";
 
 export default function Main() {
     const [getCourses, setGetCourses] = useState([]);
@@ -18,141 +19,54 @@ export default function Main() {
     const [search, setSearch] = useState('');
     const [selectValue, setSelectValue] = useState('');
     const [filterValue, setFilterValue] = useState('');
-    const [sortingDataForDefault, setSortingDataForDefault] = useState([]);
-
-    const fetchList = async () => {
-        try {
-            setCircularLoader(true);
-            let responseData;
-            if (search.trim() === '') {
-                const response = await fetch(URLs.URL_API);
-                responseData = await response.json();
-                setSortingDataForDefault(responseData);
-            } else {
-                const response = await fetch(`${URLs.URL_SEARCH}${search}`);
-                responseData = await response.json();
-            }
-            setGetCourses(responseData);
-            setCounter(responseData.length);
-            setCircularLoader(false);
-        } catch (error) {
-            console.log("Error Happens while Fetching Data " + error);
-        }
-    };
+    const coursesURL = URLs.URL_API;
+    const searchCoursesURL = URLs.URL_SEARCH;
 
     useEffect(() => {
-        fetchList();
+        if (search.trim() === '') {
+            fetchCourses({ coursesURL, setGetCourses, setCircularLoader, setCounter, setFilteredCourses });
+            setSelectValue(() => 'default');
+            setFilterValue(() => 'default');
+        }
+
+        if (search.trim() !== '') {
+            const timeoutId = setTimeout(() => {
+                searchFetch({searchCoursesURL,search, setCounter, setFilteredCourses, selectValue, filterValue});
+            }, 300);
+            return () => clearTimeout(timeoutId);
+        }
     }, [search]);
 
-    useEffect(() => {
-        const storedSortValue = localStorage.getItem("selectedSortValue");
-        if (storedSortValue) {
-            setSelectValue(storedSortValue);
-        } else {
-            setSelectValue('default')
-        }
-    }, []);
-
-    useEffect(() => {
-        const storedFilterValue = localStorage.getItem("selectedFilterValue");
-        if (storedFilterValue) {
-            setFilterValue(storedFilterValue);
-        } else{
-            setFilterValue('default');
-        }
-    }, []);
-
-
-    useEffect(() => {
-        if (selectValue !== 'default') {
-            sortData();
-            localStorage.setItem("selectedSortValue", selectValue);
-        } else {
-            
-            localStorage.setItem("selectedSortValue", selectValue);
-        }
-    }, [selectValue, counter]);
-
-    useEffect(() => {
-        if (filterValue !== 'default') {
-            filterData();
-            localStorage.setItem("selectedFilterValue", filterValue);
-        } else {
-            setFilteredCourses(getCourses);
-            localStorage.setItem("selectedFilterValue", filterValue);
-            setCounter(getCourses.length);
-        }
-    }, [filterValue, getCourses, counter]);
-
     const changeHandler = (e) => {
-        setSearch(()=>e.target.value);
+        setSearch(() => e.target.value);
     };
 
     const changeSelectHandler = (e) => {
-        setSelectValue(()=>e.target.value);
+        setSelectValue(() => e.target.value);
     };
 
     const changeFilterHandler = (e) => {
-        setFilterValue(()=>e.target.value);
+        setFilterValue(() => e.target.value);
     };
 
-    const sortData = () => {
-        let sortedData;
-        if (selectValue === 'topic') {
-            sortedData = [...getCourses].sort((a, b) => a.topic.localeCompare(b.topic));
-        } else if (selectValue === 'author') {
-            sortedData = [...getCourses].sort((a, b) => a.name.localeCompare(b.name));
-        } else {
-           sortedData = sortingDataForDefault;
-           
-        }
-        setGetCourses(sortedData);
-    };
+    useEffect(() => {
+        filterFunction({selectValue, filterValue, setFilteredCourses, getCourses, setCounter });
+    }, [selectValue,filterValue]);
 
-    const filterData = () => {
-        let filteredData;
-        if (filterValue !== 'default') {
-            filteredData = getCourses.filter((ele) => ele.category === filterValue);
-        } else {
-            filteredData = getCourses;
-        }
-        setFilteredCourses(filteredData);
-        setCounter(filteredData.length);
-    };
+
 
     const getData = () => {
-        if (!filteredCourses || filteredCourses.length === 0) {
-            return null;
-        }
-
         return filteredCourses.map((ele) => (
             <Card
                 key={ele.id}
                 CardId={ele.id}
                 hRef={`/detailOfCourse/${ele.id}`}
-                cardStyle={CardStyles.cardStyle}
                 imageSrc={require(`../assets/images/${ele.image}`)}
                 imageAlt={ele.topic}
-                imgStyle={CardStyles.imgCardStyle}
-                cardBodyStyle={CardStyles.cardBodyStyle}
-                classNameOfCardBody="card-body"
-                classNameOfCardTitle="card-title"
-                cardTitleStyle={CardStyles.cardTitleStyle}
                 titleText={ele.category}
                 topicText={ele.topic}
-                classNameOfCardTopic="card-topic"
-                classNameOfCardFooter="card-footer"
                 footerText={ele.name}
-                footerTextClassName="footer-text"
-                classNameOfFunction="star-rating"
-                cardTopicStyle={CardStyles.cardTopicStyle}
-                functionStyle={CardStyles.functionStyle}
-                spanStyle={CardStyles.spanStyle}
-                footerTextStyle={CardStyles.footerTextStyle}
-                footerCardStyle={CardStyles.footerCardStyle}
                 rating={ele.rating}
-                Img={CardStyles.ImgCard}
-                A={CardStyles.AOfCard}
             />
         ));
     };
@@ -160,9 +74,8 @@ export default function Main() {
     return (
         <main style={{ backgroundColor: 'var(--bg_body)', paddingTop: '20px' }}>
             <div className="container">
-                <SearchStyles.SectionSearch className="search-container" style={{ display: 'flex' }}>
+                <SearchStyles.SectionSearch style={{ display: 'flex' }}>
                     <SearchInput
-                        classNameOfContainer='search-input'
                         styleOfContainer={SearchStyles.styleOfSearchContainer}
                         typeOfInput='search'
                         placeHolder='Search the website'
@@ -174,9 +87,8 @@ export default function Main() {
                         change={changeHandler}
                     />
 
-                    <SelectStyles.DivSelectContainer className="select-container" style={{ width: '30%', display: 'flex', flexDirection: 'row' }} >
+                    <SelectStyles.DivSelectContainer style={{ width: '30%', display: 'flex', flexDirection: 'row' }} >
                         <Select
-                            classNameOfSelectContainer='sort'
                             styleOfSelectContainer={SelectStyles.styleOfSortSelectContainer}
                             iconNameOfSelect='chevron-down-outline'
                             iconStyle={SelectStyles.iconOfSelectStyle}
@@ -197,7 +109,6 @@ export default function Main() {
                             change={changeSelectHandler}
                         />
                         <Select
-                            classNameOfSelectContainer='filter'
                             styleOfSelectContainer={SelectStyles.styleOfSortSelectContainer}
                             iconNameOfSelect='chevron-down-outline'
                             iconStyle={SelectStyles.iconOfSelectStyle}
@@ -226,7 +137,7 @@ export default function Main() {
                 <CounterOfCourses counter={counter} />
 
                 {circularLoader ? <Loader /> :
-                    <section className="cards-container card-container-main-page"
+                    <section
                         style={{
                             display: 'grid',
                             gridTemplateColumns: " repeat(auto-fill,minmax(230px, 1fr))",
