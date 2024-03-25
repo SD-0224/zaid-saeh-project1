@@ -8,14 +8,17 @@ export const FavoriteProvider = ({ children }) => {
     const [favoriteArray, setFavoriteArray] = useState([]);
     const [favoriteAppear, setFavoriteAppear] = useState(false);
 
+
     useEffect(() => {
         const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
         setFavoriteArray(storedFavorites);
+        
     }, []);
 
     const favoriteAppearFunction = () => {
         setFavoriteAppear(prevState => !prevState);
     }
+
 
     return (
         <FavoriteContext.Provider  value={{ favoriteArray, setFavoriteArray, favoriteAppear, setFavoriteAppear , favoriteAppearFunction }}>

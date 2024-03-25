@@ -17,6 +17,7 @@ export const Favorite = () => {
         />
     ));
 
+
     return (
         <div className="favoritss" style={favoriteAppear ? FavoriteStyles.favoriteActive : FavoriteStyles.favorite} >
             <div className="container">

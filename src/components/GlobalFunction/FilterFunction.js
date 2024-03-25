@@ -1,4 +1,4 @@
-export const filterFunction = ({selectValue, filterValue, setFilteredCourses, getCourses, setCounter }) => {
+export const filterFunction = ({selectValue, filterValue, setFilteredCourses, getCourses, setCounter, defaultCourses }) => {
     let dataToFilter = [];
     if (selectValue === 'topic') {
         dataToFilter = [...getCourses].sort((a, b) => a.topic.localeCompare(b.topic));
@@ -11,6 +11,6 @@ export const filterFunction = ({selectValue, filterValue, setFilteredCourses, ge
     }
 
     let filteredData = filterValue === 'default' ? dataToFilter : dataToFilter.filter(ele => ele.category === filterValue);
-    setFilteredCourses(() => filteredData);
     setCounter(() => filteredData.length);
+    return setFilteredCourses(() => filteredData);
 };

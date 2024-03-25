@@ -25,7 +25,7 @@ export default function DetailOfCourse() {
 
     useEffect(() => {
         getCourseInfo();
-    }, []); 
+    }, [id]); 
 
  
     const addToFavorites = () =>{

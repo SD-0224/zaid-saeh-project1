@@ -1,19 +1,9 @@
 import React from "react";
-export const Select = ({
-    classNameOfSelectContainer, 
-    styleOfSelectContainer, 
-    iconNameOfSelect, 
-    iconStyle, 
-    labelStyle,
-    labelFor,
-    labelId,
-    labelText,
+import * as SelectStyles from "../components/stylesOfComponent/Select.styles";
+export const Select = ({ 
     selectName, 
-    selectId,
-    selectStyle,  
     options,
-    Select,
-    change,   
+    change, 
 
 }) => {
 
@@ -21,13 +11,36 @@ export const Select = ({
             return options.map((option) => <option  key={option.value} value={option.value} >{option.text}</option>)
     }
 
+    const selectType = {
+        "sort" : {
+            labelId : 'sort-label', 
+            labelFor: "sort", 
+            labelText: 'Sort by:', 
+            selectId: 'sort',
+            style: SelectStyles.SelectSort,
+            styleSelect: SelectStyles.selectStyle,
+        }, 
+        "filter": { 
+            labelId : 'filter-label', 
+            labelFor: "filter", 
+            labelText: 'Filter by:', 
+            selectId: 'filter',
+            style: SelectStyles.SelectFilter, 
+            styleSelect: SelectStyles.styleOfFilter,
+        }
+    }
+    
+    const currentSelectType = selectType[selectName];
+    const Select = currentSelectType.style;
+    const selectStyle =currentSelectType.styleSelect;
+
     return (
-        <div className={classNameOfSelectContainer} style={styleOfSelectContainer} >
-            <label id={labelId} htmlFor={labelFor} style={labelStyle}>{labelText}</label>
-            <Select name={selectName} id={selectId} style={selectStyle} onChange = {change}>
+        <div style={SelectStyles.styleOfSortSelectContainer} >
+            <label id={currentSelectType.labelId} htmlFor={currentSelectType.labelFor} style={SelectStyles.labelSelectStyle}>{currentSelectType.labelText}</label>
+            <Select name={selectName} id={currentSelectType.selectId} style={selectStyle} onChange = {change}>
                 {optionsArray()}
             </Select>
-            <ion-icon name={iconNameOfSelect} style={iconStyle}></ion-icon>
+            <ion-icon name="chevron-down-outline" style={SelectStyles.iconOfSelectStyle}></ion-icon>
         </div>
     )
 }
