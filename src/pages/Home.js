@@ -36,8 +36,7 @@ export default function Home() {
             if (search.trim() !== '') {
                 searchFetch({ searchCoursesURL, search, setCounter, filterValue, selectValue, setFilteredCourses, getCourses });
             } else {
-                setFilteredCourses(getCourses);
-                setCounter(getCourses.length);
+                filterFunction({ selectValue, filterValue, setFilteredCourses, getCourses, setCounter });
             }
         };
 

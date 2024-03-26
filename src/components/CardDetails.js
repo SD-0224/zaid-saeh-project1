@@ -32,13 +32,9 @@ export const CardDetails = ({ getCourse, addToFavorites, favoriteArray }) => {
                 <Button
                     icon={favoriteText()}
                     text={favoriteText(true)}
-                    className={"add-to-favorites"}
-                    style={cardStyles.button}
-                    styleIcon={cardStyles.styleIconButton}
-                    flip={true}
-                    Span={cardStyles.DivCardFooterButton}
-                    ButtonIcon={cardStyles.ButtonIcon}
-                    click={addToFavorites} />
+                    variant = {"favorite-button"}
+                    click={addToFavorites} 
+                    />
                 <p style={cardStyles.cardFooterLastChild}>Unlimited Credits</p>
             </div>
         </cardStyles.DivCard>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "./Button";
-import * as NavigationStyle from "./stylesOfComponent/Navigation.styles"; 
 import { useFavoriteContext } from "../useContext/FavoriteContext";
 
 
@@ -41,10 +40,10 @@ export default function Navigation() {
             </div>
             <ul style={{ display: 'flex', justifyContent: 'space-between', gap: '5px', alignItems: 'center' }}>
                 <li style={{ listStyle: 'none' }}>
-                    <Button className={"dark-mode-click"} icon={changeIconMode()} text={changeTextMode()} style={NavigationStyle.ButtonStyle} click={toggleDarkMode} Span = {NavigationStyle.Span} />
+                    <Button icon={changeIconMode()} text={changeTextMode()}  click={toggleDarkMode}  variant={"navigation-button"} />
                 </li>
                 <li style={{ listStyle: 'none' }}>
-                    <Button className={"favorite-button"} icon={"heart-outline"} text={"favorites"} style={NavigationStyle.ButtonStyle}  Span = {NavigationStyle.Span}  click= {favoriteAppearFunction} />
+                    <Button icon={"heart-outline"} text={"favorites"}  click= {favoriteAppearFunction}  variant={"navigation-button"}/>
                 </li>
             </ul>
         </nav>
